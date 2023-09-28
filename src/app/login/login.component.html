@@ -1,0 +1,43 @@
+<div class="background">
+  <div class="superior">
+    <div class="logo">
+      <img src="../../assets/logo.png" alt="Logo">
+    </div>
+
+  </div>
+  <div class="form-container">
+    <h2>Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="custom-input" type="text" id="email" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input class="custom-input" type="password" id="senha" formControlName="senha">
+      </div>
+
+      <div class="botoes">
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="cadastrar()">
+            Cadastrar
+          </button>
+        </div>
+        <div class="button-container">
+          <button type="submit" [disabled]="form.invalid" class="submit-button" (click)="concluir()">
+            Concluir
+          </button>
+        </div>
+      </div>
+      <div class="pre-span"></div>
+    </form>
+    <!-- <div class="visit-button-container">
+      <button type="submit" [disabled]="form.invalid" class="visit-button" (click)="concluir()">
+        Sou Visitante
+      </button>
+    </div> -->
+  </div>
+</div>
+

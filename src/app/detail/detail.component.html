@@ -1,0 +1,65 @@
+<div class="background">
+<div class="container">
+  <div class="top-section">
+    <div class="esquerda">
+      <a href="http://localhost:4200/escolha">
+        <img src="../../assets/airplane.png" alt="Imagem" width="110px" height="276px">
+      </a>
+      <div class="detail-label">{{ aviao.name }}</div>
+    </div>
+    <div class="direita">
+      <div class="title-label">
+        Preço Médio:
+      </div>
+      <span>R$ {{ aviao.preco }}</span>
+    </div>
+  </div>
+
+  <div class="middle-section">
+    <div style="margin-bottom: 15px;">
+      <label for="combSelect" style="margin-bottom: 25px; font-size: 20px; font-weight: bold;">Qual Combustível deseja utilizar:</label>
+      <select [(ngModel)]="escolha" (change)="combChange()" name="combSelect">
+        <option value="" disabled>Selecione uma opção</option>
+        <option *ngIf="aviao.jetA" value="Querosene JET A">Querosene JET A</option>
+        <option *ngIf="aviao.jetA1" value="Querosene JET A-1">Querosene JET A-1</option>
+        <option *ngIf="aviao.jetB" value="Querosene JET B">Querosene JET B</option>
+      </select>
+
+      <h5 *ngIf="combSelect"> {{ combName }}</h5>
+      <h4 *ngIf="combSelect"> R${{ combSelect }} a hora de voo do avião {{ aviao.name }} </h4>
+    </div>
+
+    <div style="margin-bottom: 25px; font-size: 20px; font-weight: bold;">
+      <label for="range">Distância a ser percorrida:</label>
+      <input type="text"[(ngModel)]="distancia" (ngModelChange)="combChange()" placeholder="km">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <div class="title-label">
+        Preço total da viagem ({{distancia}}km):
+      </div>
+      <!-- <span>R${{ combSelect * (distancia / aviao.velocidade) }}</span> -->
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <label for="combSelect" style="margin-bottom: 25px; font-size: 20px; font-weight: bold;">Moeda desejada:</label>
+      <select [(ngModel)]="moedaSelect" (change)="combChange()" name="combSelect">
+        <option value="" disabled>Selecione uma opção</option>
+        <option value="Real">Real</option>
+        <option value="Euro">Euro</option>
+        <option value="Dolar">Dólar</option>
+      </select>
+    </div>
+
+    <div style="display: flex" class="sign-button-container">
+      <span *ngIf="moedaSelect == 'Real'">R$ {{ (combSelect * (distancia / aviao.velocidade)).toFixed(2)}}</span>
+      <span *ngIf="moedaSelect == 'Dolar'">$ {{ ((combSelect * (distancia / aviao.velocidade)) / valorDolarBR).toFixed(2)}}</span>
+      <span *ngIf="moedaSelect == 'Euro'">€ {{ (combSelect * (distancia / aviao.velocidade) * valorDolarEU).toFixed(2)}}</span>
+      <button class="signup-button" (click)="imposto(aviao._id)">Adicionar impostos</button>
+    </div>
+
+  </div>
+  <br><br>
+
+</div>
+</div>

@@ -1,0 +1,59 @@
+<div class="background">
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo" width="200px" height="183px">
+  </div>
+
+  <div class="form-container">
+    <h2>Avião</h2>
+
+      <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="form-group">
+          <label for="name">Nome da aeronave:</label>
+          <input class="custom-input" type="text" placeholder="14-Bis" [(ngModel)]="aviao.name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="preco">Preço Médio:</label>
+          <input class="custom-input" type="text" placeholder="R$ 15.000.000" [(ngModel)]="aviao.preco" name="preco" required>
+        </div>
+
+        <div class="form-group">
+          <label for="consumo">Consumo l/h:</label>
+          <input class="custom-input" type="text" placeholder="0" [(ngModel)]="aviao.consumo" name="consumo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="velocidade">Velocidade de Cruzeiro:</label>
+          <input class="custom-input" type="text" placeholder="0" [(ngModel)]="aviao.velocidade" name="velocidade" required>
+        </div>
+
+        <div class="form-group">
+          <label style="margin-bottom: 5px;">Selecione os possíveis combustíveis:</label> <br >
+          <label for="jetA">
+            <input type="checkbox" name="jetA" value="jetA" [(ngModel)]="aviao.jetA"> Querosene JET A
+          </label>
+          <label for="jetA1">
+            <input type="checkbox" name="jetA1" value="jetA1" [(ngModel)]="aviao.jetA1"> Querosene JET A-1
+          </label>
+          <label for="jetB">
+            <input type="checkbox" name="jetB" value="jetB" [(ngModel)]="aviao.jetB"> Querosene JET B
+          </label>
+        </div>
+
+      <div class="pre-span"></div>
+
+      <div class="botoes">
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="voltar()">
+            Voltar ao Cadastro
+          </button>
+          </div>
+        <div class="button-container">
+          <button type="submit" class="submit-button" [disabled]="myForm.invalid">
+            Concluir
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

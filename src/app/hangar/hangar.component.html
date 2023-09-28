@@ -1,0 +1,84 @@
+<div class="background">
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo" width="280px" height="215px">
+  </div>
+
+  <div class="form-container">
+    <h2>Hangar</h2>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input class="custom-input" type="text" placeholder="Fly São Paulo Aviation" [(ngModel)]="hangar.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cep">Cep:</label>
+        <input class="custom-input" type="text" placeholder="18092-180" [(ngModel)]="hangar.cep" name="cep" required>
+      </div>
+
+      <div class="form-group">
+        <label for="logradouro">Logradouro:</label>
+        <input class="custom-input" type="text" placeholder="Sorocaba" [(ngModel)]="hangar.logradouro" name="logradouro" required>
+      </div>
+
+      <div class="form-group">
+        <label for="numero">Número:</label>
+        <input class="custom-input" type="text" placeholder="123" [(ngModel)]="hangar.numero" name="numero" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input class="custom-input" type="text" placeholder="Vila Nobre" [(ngModel)]="hangar.bairro" name="bairro" required>
+      </div>
+
+      <div class="form-group">
+        <label for="area">Area:</label>
+        <input class="custom-input" type="text" placeholder="1000 m²" [(ngModel)]="hangar.area" name="area" required>
+      </div>
+
+      <div class="form-group">
+        <label for="valor">Valor Diário:</label>
+        <input class="custom-input" type="text" placeholder="R$ 300" [(ngModel)]="hangar.valor" name="valor">
+      </div>
+
+      <div class="form-group">
+        <label for="hora">Tempo Máximo:</label>
+        <input class="custom-input" type="text" placeholder="1 ano" [(ngModel)]="hangar.hora" name="hora">
+      </div>
+
+      <div class="pre-span" *ngIf="!detalhe"></div>
+      <div class="pre-span" *ngIf="detalhe"></div>
+
+
+      <div class="botoes">
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="cadastrar()">
+            Cadastro
+          </button>
+        </div>
+
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="hangares()">
+            Hangares cadastrados
+          </button>
+        </div>
+
+        <div class="sign-button-container" *ngIf="detalhe">
+          <button type="submit" class="signup-button" (click)="voltar()">
+            Voltar
+          </button>
+        </div>
+
+        <div class="button-container" *ngIf="!detalhe">
+          <button type="submit" [disabled]="myForm.invalid" class="submit-button">
+            Criar Hangar
+          </button>
+        </div>
+
+      </div>
+
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="background">
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo" width="180px" height="140px">
+  </div>
+  <div class="form-container">
+      <div class="form-group">
+        <div class="middle-section">
+          <div class="form-group">
+            <label for="meses" style="margin-bottom: 25px; font-size: 20px; font-weight: bold;">
+              Quantos meses deseja ficar com a aeronave:
+            </label>
+            <input class="custom-input" type="text" (change)="mes()" [(ngModel)]="meses" name="meses" required>
+          </div>
+
+          <div class="priceLabel">
+            <div class="title-label">
+              Seguro RETA:
+            </div>
+          </div>
+          <span><div *ngIf="meses">R$ {{ seguro }}</div></span>
+
+          <div class="title-label">
+            Licença de Rádio:
+          </div>
+          <span><div *ngIf="meses">R$ {{ radio }}</div></span>
+
+          <div class="title-label">
+            Manutenção (5 anos):
+          </div>
+          <span><div *ngIf="meses">R$ {{ manu }}</div></span>
+
+          <div class="title-label">
+            Total de impostos a serem pagos (Anual):
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="combSelect" style="margin-bottom: 25px; font-size: 20px; font-weight: bold;">Moeda desejada:</label>
+            <select [(ngModel)]="moedaSelect" name="combSelect">
+              <option value="" disabled>Selecione uma opção</option>
+              <option value="Real">Real</option>
+              <option value="Euro">Euro</option>
+              <option value="Dolar">Dólar</option>
+            </select>
+          </div>
+          <span *ngIf="moedaSelect == 'Real'"><div *ngIf="meses">R$ {{ (total).toFixed(2) }} -- R${{ (total / 12).toFixed(2)}} por mês</div></span>
+          <span *ngIf="moedaSelect == 'Dolar'"><div *ngIf="meses">$ {{ (total / valorDolarBR).toFixed(2) }} -- ${{ (total / 12).toFixed(2)}} por mês</div></span>
+          <span *ngIf="moedaSelect == 'Euro'"><div *ngIf="meses">€ {{ (total * valorDolarEU).toFixed(2) }} -- €{{ (total / 12).toFixed(2)}} por mês</div></span>
+
+        </div>
+      </div>
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="voltar()">
+            Voltar
+          </button>
+          <div>
+          </div>
+        </div>
+    </div>
+</div>

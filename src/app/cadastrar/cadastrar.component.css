@@ -1,0 +1,95 @@
+.background {
+  background-image: url('../../assets/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  padding-bottom: 4.2%;
+}
+
+.background::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/background.jpeg');
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.logo {
+  margin: 0px;
+  width: 70%;
+  display: block;
+}
+
+
+.botoes{
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.form-container {
+  margin-bottom: 7px;
+}
+
+h2{
+  background-color: white;
+  color: #4C7882;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.button-container {
+  display: grid;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4C7882;
+  color: white;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+button{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.visit-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  height: 30px;
+}
+
+.visit-button{
+  color: #4C7882;
+  background-color: white;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 180px;
+  font-size: 17px;
+}
+

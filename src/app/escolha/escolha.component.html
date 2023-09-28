@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo">
+  </div>
+  <div class="form-container">
+    <h2>Escolha seu avião</h2>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="form-group">
+        <select [(ngModel)]="aviaoSelecionado" name="aviaoSelecionado">
+          <option value="" disabled>Selecione uma opção</option>
+          <option *ngFor="let aviao of avioes" [value]="aviao._id">{{ aviao.name }}</option>
+        </select>
+
+      </div>
+      <div class="botoes">
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="cadastro()">
+            Voltar pro Cadastro
+          </button>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" [disabled]="myForm.invalid" class="submit-button">
+            Concluir
+          </button>
+        </div>
+    </div>
+    </form>
+  </div>
+</div>

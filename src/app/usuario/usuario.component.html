@@ -1,0 +1,49 @@
+<div class="background">
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo" width="280px" height="215px">
+  </div>
+
+  <div class="form-container">
+    <h2>Usuário</h2>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input class="custom-input" type="text" placeholder="José Maria" [(ngModel)]="user.name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input class="custom-input" type="text" placeholder="Jose@gmail.com" [(ngModel)]="user.email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input class="custom-input" type="password" [(ngModel)]="user.senha" name="senha" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input class="custom-input" type="text" placeholder="123.456.789-00" [(ngModel)]="user.cpf" name="cpf" required>
+      </div>
+
+      <div class="form-group">
+        <label for="numero">Telefone:</label>
+        <input class="custom-input" type="text" placeholder="(11) 99603-7177" [(ngModel)]="user.numero" name="numero" required>
+      </div>
+
+      <div class="botoes">
+        <div class="sign-button-container">
+          <button type="submit" class="signup-button" (click)="voltar()">
+            Voltar ao Cadastro
+          </button>
+          </div>
+        <div class="button-container">
+          <button type="submit" [disabled]="myForm.invalid" class="submit-button">
+            Concluir
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
